@@ -17,6 +17,14 @@ export type Article = {
   sources: { label: string; url: string }[];
 };
 
+const EPA_IAQ = "https://www.epa.gov/indoor-air-quality-iaq";
+const EPA_VOC = "https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality";
+const EPA_IMPROVE = "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality";
+const EPA_CLEANERS = "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home";
+const ASHRAE = "https://www.ashrae.org";
+const WHO = "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health";
+const NIST = "https://www.nist.gov";
+
 export const articles: Article[] = [
   {
     slug: "indoor-air-quality-apartments",
@@ -24,7 +32,7 @@ export const articles: Article[] = [
     description:
       "What safe indoor air means in small apartments: CO₂, VOCs, ventilation, and monitors — with practical thresholds from EPA and ASHRAE guidance.",
     directAnswer:
-      "Indoor air quality (IAQ) in apartments depends on ventilation, indoor sources (cooking, cleaning, furniture), and outdoor air that enters through leaks or open windows. For occupied spaces, ASHRAE commonly targets roughly 1,000 ppm CO₂ or lower as a ventilation adequacy signal; EPA focuses on reducing VOCs, PM₂.₅, and other pollutants through source control and filtered fresh air.",
+      "Indoor air quality (IAQ) in apartments depends on ventilation, indoor sources (cooking, cleaning, furniture), and outdoor air that enters through leaks or open windows. For occupied spaces, [ASHRAE ventilation guidance](https://www.ashrae.org) commonly targets roughly 1,000 ppm CO₂ or lower as a ventilation adequacy signal; [EPA IAQ guidance](https://www.epa.gov/indoor-air-quality-iaq) focuses on reducing VOCs, PM₂.₅, and other pollutants through source control and filtered fresh air.",
     updated: "2026-06-18",
     pillar: true,
     sections: [
@@ -32,16 +40,16 @@ export const articles: Article[] = [
         id: "what-is-iaq",
         heading: "What is indoor air quality?",
         paragraphs: [
-          "Indoor air quality (IAQ) describes the condition of air inside a building — including temperature, humidity, and concentrations of pollutants such as carbon dioxide (CO₂), volatile organic compounds (VOCs), particulate matter, and carbon monoxide.",
-          "Apartments often have less control over whole-building ventilation than single-family homes. Renters rely on operable windows, bathroom and kitchen exhaust fans, portable air cleaners, and whatever central system the building provides.",
+          "Indoor air quality (IAQ) describes the condition of air inside a building — including temperature, humidity, and concentrations of pollutants such as carbon dioxide (CO₂), volatile organic compounds (VOCs), particulate matter, and carbon monoxide — because these factors determine what you breathe for hours each day.",
+          "Apartments often have less control over whole-building ventilation than single-family homes. Renters rely on operable windows, bathroom and kitchen exhaust fans, portable air cleaners, and whatever central system the building provides ([EPA improving IAQ](https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality)).",
         ],
       },
       {
         id: "what-to-measure",
         heading: "What should apartment dwellers measure?",
         paragraphs: [
-          "CO₂ is a useful proxy for whether enough fresh air is reaching a room when people are present. It is not itself a toxic gas at typical indoor levels, but rising CO₂ often means ventilation is lagging behind occupancy.",
-          "Total VOC (TVOC) sensors and PM₂.₅ monitors help spot pollution spikes from cooking, wildfire smoke, or off-gassing from new materials. A single consumer monitor may not measure every pollutant; match the device to your main concern.",
+          "CO₂ is a useful proxy for whether enough fresh air is reaching a room when people are present — readings above about 1,000 ppm often mean ventilation is lagging behind occupancy, which leads to stuffiness even though CO₂ itself is not toxic at typical indoor levels.",
+          "Total VOC (TVOC) sensors and PM₂.₅ monitors help spot pollution spikes from cooking, wildfire smoke, or off-gassing from new materials. A single consumer monitor may not measure every pollutant; match the device to your main concern ([EPA air cleaners overview](https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home)).",
         ],
         bullets: [
           "CO₂ — ventilation adequacy when occupied (often compared to ~1,000 ppm benchmarks)",
@@ -52,12 +60,12 @@ export const articles: Article[] = [
       },
       {
         id: "quick-wins",
-        heading: "Practical improvements that do not require renovation",
+        heading: "What practical improvements work without renovation?",
         paragraphs: [
-          "Run kitchen and bath exhaust fans during and after cooking or showering. Use the highest setting that is tolerable for noise.",
-          "Open windows when outdoor air is clean — even 10–15 minutes can lower CO₂ and stale-air feel. In summer or wildfire season, prefer short flush ventilation when outdoor AQI is good.",
-          "Choose cleaning products with lower VOC emissions and avoid burning candles or incense in small, closed rooms.",
-          "Place a portable air cleaner with a HEPA filter in the room where you spend the most time if outdoor or wildfire smoke is a recurring issue.",
+          "Run kitchen and bath exhaust fans during and after cooking or showering, because exhaust airflow removes moisture and combustion byproducts before they spread to bedrooms.",
+          "Open windows when outdoor air is clean — even 10–15 minutes can lower CO₂ and stale-air feel. In summer or wildfire season, prefer short flush ventilation when outdoor AQI is good ([EPA ventilation tips](https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality)).",
+          "Choose cleaning products with lower VOC emissions and avoid burning candles or incense in small, closed rooms — source control reduces exposure more reliably than masking odors.",
+          "Place a portable air cleaner with a HEPA filter in the room where you spend the most time if outdoor or wildfire smoke is a recurring issue ([WHO household air pollution facts](https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health)).",
         ],
       },
     ],
@@ -79,9 +87,9 @@ export const articles: Article[] = [
       },
     ],
     sources: [
-      { label: "EPA — Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq" },
-      { label: "ASHRAE — Ventilation for acceptable indoor air quality", url: "https://www.ashrae.org" },
-      { label: "WHO — Household fuel combustion and health", url: "https://www.who.int" },
+      { label: "EPA — Indoor Air Quality", url: EPA_IAQ },
+      { label: "ASHRAE — Ventilation for acceptable indoor air quality", url: ASHRAE },
+      { label: "WHO — Household fuel combustion and health", url: WHO },
     ],
   },
   {
@@ -90,37 +98,35 @@ export const articles: Article[] = [
     description:
       "CO₂ is measured in parts per million (ppm). Learn typical outdoor and indoor ranges, what 1,000 ppm means, and when to ventilate a small apartment.",
     directAnswer:
-      "CO₂ ppm counts how many parts per million of indoor air are carbon dioxide. Outdoor air is typically about 400–450 ppm. Indoors, readings under about 1,000 ppm are widely used as a ventilation comfort benchmark; above roughly 1,500–2,000 ppm, more occupants report stuffiness and reduced concentration.",
+      "CO₂ ppm counts how many parts per million of indoor air are carbon dioxide. Outdoor air is typically about 400–450 ppm. Indoors, readings under about 1,000 ppm are widely used as a ventilation comfort benchmark ([ASHRAE](https://www.ashrae.org)); above roughly 1,500–2,000 ppm, more occupants report stuffiness and reduced concentration.",
     updated: "2026-06-18",
     sections: [
       {
         id: "definition",
         heading: "What does ppm mean for CO₂?",
         paragraphs: [
-          "Parts per million (ppm) expresses concentration: 1,000 ppm CO₂ means 0.1% of the air volume is carbon dioxide. People exhale CO₂, so levels rise in closed rooms with several occupants and limited fresh air.",
+          "Parts per million (ppm) expresses concentration: 1,000 ppm CO₂ means 0.1% of the air volume is carbon dioxide. People exhale CO₂, so levels rise in closed rooms with several occupants and limited fresh air — which is why a bedroom with two people can exceed 1,500 ppm overnight without ventilation.",
         ],
       },
       {
         id: "ranges",
-        heading: "Typical CO₂ ranges indoors",
+        heading: "What are typical CO₂ ranges indoors?",
         paragraphs: [
-          "Outdoor background: often 400–450 ppm in urban areas (varies seasonally).",
-          "Well-ventilated room: often 600–900 ppm with people present.",
-          "Stuffy meeting or bedroom: 1,000–1,500 ppm is common without adequate air exchange.",
-          "Poorly ventilated space: 2,000+ ppm can occur; ventilation should be improved.",
+          "Outdoor background is often 400–450 ppm in urban areas (varies seasonally), while a well-ventilated room with people present commonly reads 600–900 ppm because fresh air dilutes exhaled CO₂.",
         ],
         bullets: [
           "~400–450 ppm — typical outdoor baseline",
           "~800–1,000 ppm — common target band for acceptable occupied ventilation",
-          "1,500+ ppm — strong cue to open windows or increase exhaust airflow",
+          "1,000–1,500 ppm — stuffy meeting or bedroom without adequate air exchange",
+          "2,000+ ppm — strong cue to open windows or increase exhaust airflow",
         ],
       },
       {
         id: "actions",
-        heading: "What to do when CO₂ is high",
+        heading: "What should you do when CO₂ is high?",
         paragraphs: [
-          "Short-term: open a window, run exhaust fans, or move to a better-ventilated area.",
-          "Long-term: sleep with the door cracked if safe, ensure bath/kitchen fans work, and ask building management about makeup air or HVAC maintenance if levels stay high with windows closed.",
+          "Short-term: open a window for 5–15 minutes, run exhaust fans, or move to a better-ventilated area — flush ventilation exchanges air quickly without leaving windows cracked all day.",
+          "Long-term: sleep with the door cracked if safe, ensure bath/kitchen fans work, and ask building management about makeup air or HVAC maintenance if levels stay high with windows closed ([NIST ventilation research](https://www.nist.gov)).",
         ],
       },
     ],
@@ -137,8 +143,8 @@ export const articles: Article[] = [
       },
     ],
     sources: [
-      { label: "EPA — Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq" },
-      { label: "NIST — Indoor air quality and ventilation", url: "https://www.nist.gov" },
+      { label: "EPA — Indoor Air Quality", url: EPA_IAQ },
+      { label: "NIST — Indoor air quality and ventilation", url: NIST },
     ],
   },
   {
@@ -147,33 +153,32 @@ export const articles: Article[] = [
     description:
       "Volatile organic compounds (VOCs) are chemicals that evaporate into indoor air from products and activities. Learn common sources and how to reduce exposure in apartments.",
     directAnswer:
-      "Volatile organic compounds (VOCs) are organic chemicals that easily become vapors at room temperature. Indoors, they come from paints, cleaners, adhesives, furniture, cooking, and personal care products. EPA advises reducing VOC exposure through source selection, ventilation, and following product label directions.",
+      "Volatile organic compounds (VOCs) are organic chemicals that easily become vapors at room temperature. Indoors, they come from paints, cleaners, adhesives, furniture, cooking, and personal care products. [EPA VOC guidance](https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality) advises reducing VOC exposure through source selection, ventilation, and following product label directions.",
     updated: "2026-06-18",
     sections: [
       {
         id: "definition",
         heading: "What are VOCs?",
         paragraphs: [
-          "VOC stands for volatile organic compound — a large group of carbon-based chemicals that off-gas into air. Not every VOC is equally harmful, but elevated indoor levels can irritate eyes and airways and contribute to long-term health concerns at high exposures.",
+          "VOC stands for volatile organic compound — a large group of carbon-based chemicals that off-gas into air. Not every VOC is equally harmful, but elevated indoor levels can irritate eyes and airways and contribute to long-term health concerns at high exposures ([EPA VOC overview](https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality)).",
         ],
       },
       {
         id: "sources",
-        heading: "Common VOC sources in apartments",
+        heading: "What are common VOC sources in apartments?",
         paragraphs: [
-          "New furniture, flooring, or flat-pack assemblies can off-gas formaldehyde and other aldehydes for weeks.",
-          "Aerosol cleaners, air fresheners, and bleach-containing products release VOCs during use.",
-          "Cooking on gas stoves produces combustion byproducts; use hood ventilation when available.",
+          "New furniture, flooring, or flat-pack assemblies can off-gas formaldehyde and other aldehydes for weeks, which causes TVOC spikes in small bedrooms.",
+          "Aerosol cleaners, air fresheners, and bleach-containing products release VOCs during use — ventilation during cleaning reduces peak exposure by 50% or more in many tests.",
+          "Cooking on gas stoves produces combustion byproducts; use hood ventilation when available ([WHO household air pollution](https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health)).",
         ],
       },
       {
         id: "reduce",
-        heading: "How to lower VOC levels without remodeling",
+        heading: "How can you lower VOC levels without remodeling?",
         paragraphs: [
-          "Ventilate during and after painting or cleaning. Open windows when outdoor air quality is good.",
-          "Choose low-VOC or Green Seal / similar certified products when replacements are due.",
-          "Store solvents and paints in sealed containers outside living space when possible.",
-          "Let new furniture air out near open windows before placing in a small bedroom.",
+          "Ventilate during and after painting or cleaning, because opening windows when outdoor air quality is good removes vapors faster than filtration alone.",
+          "Choose low-VOC or Green Seal certified products when replacements are due — source control prevents emissions rather than chasing sensor readings.",
+          "Store solvents and paints in sealed containers outside living space when possible, and let new furniture air out near open windows before placing in a small bedroom ([EPA improving IAQ](https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality)).",
         ],
       },
     ],
@@ -185,7 +190,7 @@ export const articles: Article[] = [
       },
     ],
     sources: [
-      { label: "EPA — Volatile Organic Compounds' Impact on Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality" },
+      { label: "EPA — Volatile Organic Compounds' Impact on Indoor Air Quality", url: EPA_VOC },
     ],
   },
   {
@@ -194,23 +199,37 @@ export const articles: Article[] = [
     description:
       "Short flush ventilation, fan timing, and night cooling tricks for renters who need fresh air without wasting energy.",
     directAnswer:
-      "Use short flush ventilation: open windows wide for 5–15 minutes to exchange air, then close them rather than leaving windows cracked all day. Run kitchen and bath exhaust fans during cooking and showering, and ventilate when outdoor air is coolest or cleanest — often early morning — to recover comfort faster after airing out.",
+      "Use short flush ventilation: open windows wide for 5–15 minutes to exchange air, then close them rather than leaving windows cracked all day. Run kitchen and bath exhaust fans during cooking and showering, and ventilate when outdoor air is coolest or cleanest — often early morning — to recover comfort faster after airing out ([EPA improving IAQ](https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality)).",
     updated: "2026-06-18",
     sections: [
       {
         id: "flush",
-        heading: "Flush ventilation vs. trickle ventilation",
+        heading: "What is flush ventilation vs. trickle ventilation?",
         paragraphs: [
-          "Trickle ventilation (a window cracked for hours) bleeds heating or cooling continuously. Flush ventilation moves a large volume quickly, then seals the envelope again — often more energy-efficient for CO₂ control.",
+          "Flush ventilation moves a large volume of air in 5–15 minutes, then seals the envelope again — this often lowers CO₂ faster than a window cracked for hours because it exchanges air in one batch rather than bleeding heat continuously.",
+          "Trickle ventilation (a window cracked for hours) bleeds heating or cooling continuously, which can increase energy use noticeably in small apartments during winter or summer peaks ([ASHRAE ventilation standards](https://www.ashrae.org)).",
         ],
       },
       {
         id: "when",
-        heading: "When to air out",
+        heading: "When should you air out an apartment?",
         paragraphs: [
-          "Check outdoor AQI before opening windows during wildfire season.",
-          "In winter, a brief flush before leaving for work can reset overnight CO₂ without leaving windows open all day.",
-          "Pair flush ventilation with exhaust fans to pull stale air out while fresh air enters.",
+          "Check outdoor AQI before opening windows during wildfire season, because bringing smoke indoors can spike PM₂.₅ above 100 µg/m³ within minutes.",
+          "In winter, a brief flush before leaving for work can reset overnight CO₂ from 1,500 ppm toward 800 ppm without leaving windows open all day.",
+          "Pair flush ventilation with exhaust fans to pull stale air out while fresh air enters through windows on the opposite side ([EPA ventilation guidance](https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality)).",
+        ],
+      },
+      {
+        id: "energy",
+        heading: "How much energy does flush ventilation save?",
+        paragraphs: [
+          "A 10-minute flush twice daily typically costs less heating or cooling loss than one window cracked 8 hours, because the HVAC system runs less overall when the envelope stays sealed between flushes.",
+        ],
+        bullets: [
+          "1. Open windows fully on opposite sides if safe for 5–15 minutes",
+          "2. Run kitchen or bath exhaust on high during the flush",
+          "3. Close windows and doors; allow 10–20 minutes for temperature recovery",
+          "4. Repeat when CO₂ rises above ~1,000 ppm or air feels stale",
         ],
       },
     ],
@@ -220,9 +239,15 @@ export const articles: Article[] = [
         answer:
           "A small crack for hours can increase cooling load noticeably. Short, intentional flush periods usually exchange more air per unit of energy lost.",
       },
+      {
+        question: "Can exhaust fans alone ventilate without opening windows?",
+        answer:
+          "Exhaust fans remove air but require makeup air from somewhere — often gaps around doors or windows. In tight apartments, pairing exhaust with a controlled window opening works better than fans alone.",
+      },
     ],
     sources: [
-      { label: "EPA — Improving Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq/improving-indoor-air-quality" },
+      { label: "EPA — Improving Indoor Air Quality", url: EPA_IMPROVE },
+      { label: "ASHRAE — Ventilation guidance", url: ASHRAE },
     ],
   },
   {
@@ -231,22 +256,29 @@ export const articles: Article[] = [
     description:
       "Compare CO₂-only sensors, PM₂.₅ monitors, and multi-sensor IAQ devices so you buy for your actual apartment problem.",
     directAnswer:
-      "A CO₂ monitor measures carbon dioxide concentration — best for judging ventilation when people are in the room. A broader air quality monitor may add PM₂.₅ (smoke and dust), TVOC (mixed gases), humidity, and temperature. Choose CO₂ if stuffiness is the issue; choose PM₂.₅ or multi-sensor if wildfire smoke or particles are the main concern.",
+      "A CO₂ monitor measures carbon dioxide concentration — best for judging ventilation when people are in the room. A broader air quality monitor may add PM₂.₅ (smoke and dust), TVOC (mixed gases), humidity, and temperature. Choose CO₂ if stuffiness is the issue; choose PM₂.₅ or multi-sensor if wildfire smoke or particles are the main concern ([EPA air cleaners guidance](https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home)).",
     updated: "2026-06-18",
     sections: [
       {
         id: "co2",
-        heading: "When a CO₂ monitor is enough",
+        heading: "When is a CO₂ monitor enough?",
         paragraphs: [
-          "Home office with 2–3 people, bedroom overnight stuffiness, or checking whether building HVAC delivers enough fresh air — CO₂ alone answers the ventilation question.",
+          "A CO₂-only sensor answers ventilation questions in a home office with 2–3 people, a bedroom with overnight stuffiness above 1,000 ppm, or when checking whether building HVAC delivers enough fresh air — because CO₂ rises predictably with occupancy.",
         ],
       },
       {
         id: "multi",
-        heading: "When you need more sensors",
+        heading: "When do you need more sensors?",
         paragraphs: [
-          "Wildfire smoke, urban dust, or allergy seasons: prioritize PM₂.₅ and a HEPA purifier, not CO₂ alone.",
-          "New renovation smell: TVOC sensors may show spikes, but source removal and ventilation matter more than the number on screen.",
+          "Wildfire smoke, urban dust, or allergy seasons require PM₂.₅ measurement and often a HEPA purifier, because particles are not visible on a CO₂-only display.",
+          "New renovation smell may show TVOC spikes, but source removal and ventilation matter more than the absolute number on screen ([EPA VOC guidance](https://www.epa.gov/indoor-air-quality-iaq/volatile-organic-compounds-impact-indoor-air-quality)).",
+        ],
+      },
+      {
+        id: "choose",
+        heading: "How should you choose between models?",
+        paragraphs: [
+          "Match the sensor to the pollutant you need to control: CO₂ for fresh air, PM₂.₅ for smoke, and TVOC only as a trend indicator because cross-brand TVOC readings are rarely comparable ([NIST sensor research](https://www.nist.gov)).",
         ],
       },
     ],
@@ -258,7 +290,7 @@ export const articles: Article[] = [
       },
     ],
     sources: [
-      { label: "EPA — Air Cleaners and Air Filters in the Home", url: "https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home" },
+      { label: "EPA — Air Cleaners and Air Filters in the Home", url: EPA_CLEANERS },
     ],
   },
   {
@@ -272,17 +304,26 @@ export const articles: Article[] = [
     sections: [
       {
         id: "height",
-        heading: "Height and distance",
+        heading: "What height and distance work best?",
         paragraphs: [
-          "Avoid mounting right next to a window that is often open — outdoor air will dominate.",
-          "Keep away from stovetops and cleaning product storage; localized spikes are real but not whole-room conditions.",
+          "Mount or place the device about 3–6 feet high in the breathing zone, because CO₂ and PM₂.₅ concentrations differ near the floor versus where you sit or sleep.",
+          "Avoid placing right next to a window that is often open — outdoor air will dominate readings and hide indoor buildup.",
+          "Keep away from stovetops and cleaning product storage; localized spikes are real but do not represent whole-room conditions ([EPA IAQ basics](https://www.epa.gov/indoor-air-quality-iaq)).",
         ],
       },
       {
         id: "multi-room",
-        heading: "One apartment, multiple microclimates",
+        heading: "Why does one apartment have multiple microclimates?",
         paragraphs: [
-          "Kitchen PM₂.₅ can spike during frying while the bedroom looks fine. If cooking is your main concern, a monitor in the kitchen for a week tells you more than a single living-room average.",
+          "Kitchen PM₂.₅ can spike above 200 µg/m³ during frying while the bedroom reads under 20 µg/m³, because cooking emissions stay localized without strong exhaust.",
+          "If cooking is your main concern, a monitor in the kitchen for one week tells you more than a single living-room average ([WHO household air pollution](https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health)).",
+        ],
+      },
+      {
+        id: "calibrate",
+        heading: "How often should you move or calibrate a monitor?",
+        paragraphs: [
+          "Move the sensor seasonally — winter stuffiness and summer smoke create different priorities — and calibrate CO₂ sensors outdoors monthly if the manufacturer recommends it, because NDIR sensors drift slowly over time.",
         ],
       },
     ],
@@ -294,7 +335,7 @@ export const articles: Article[] = [
       },
     ],
     sources: [
-      { label: "EPA — Indoor Air Quality", url: "https://www.epa.gov/indoor-air-quality-iaq" },
+      { label: "EPA — Indoor Air Quality", url: EPA_IAQ },
     ],
   },
 ];

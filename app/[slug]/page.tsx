@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props) {
     pathname: `/${slug}`,
     title: article.title,
     description: article.description,
+    modified: article.updated,
   });
 }
 

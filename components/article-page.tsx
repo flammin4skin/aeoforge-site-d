@@ -1,18 +1,29 @@
 import Link from "next/link";
 
 import type { Article } from "@/lib/articles";
-import { articleJsonLd, faqJsonLd } from "@/lib/schema";
+import { RichText } from "@/lib/rich-text";
+import { articleJsonLd, faqJsonLd, organizationJsonLd } from "@/lib/schema";
 
 type Props = {
   article: Article;
   pathname: string;
 };
 
+function formatUpdated(isoDate: string): string {
+  const d = new Date(`${isoDate}T12:00:00.000Z`);
+  return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
 export function ArticlePage({ article, pathname }: Props) {
   const faqSchema = faqJsonLd(article);
+  const modifiedIso = `${article.updated}T12:00:00.000Z`;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(article, pathname)) }}
@@ -32,7 +43,8 @@ export function ArticlePage({ article, pathname }: Props) {
         <span className="text-slate-700">{article.title}</span>
       </nav>
 
-      <header className="mb-8">
+      {/* Not <header> — AEOForge htmlToPlainText strips <header>, which removed H1 + direct answer from scoring. */}
+      <div className="mb-8">
         {article.pillar ? (
           <p className="mb-2 text-sm font-medium uppercase tracking-wide text-sky-700">
             Pillar guide
@@ -44,24 +56,30 @@ export function ArticlePage({ article, pathname }: Props) {
         <p className="mt-3 text-lg text-slate-600">{article.description}</p>
         <p className="mt-4 rounded-lg border border-sky-100 bg-sky-50 px-4 py-3 text-slate-800">
           <strong className="text-slate-900">Direct answer: </strong>
-          {article.directAnswer}
+          <RichText text={article.directAnswer} />
         </p>
-        <p className="mt-3 text-sm text-slate-500">Updated {article.updated}</p>
-      </header>
+        <p className="mt-3 text-sm text-slate-500">
+          Last updated{" "}
+          <time dateTime={modifiedIso}>{formatUpdated(article.updated)}</time> (reviewed{" "}
+          {article.updated.slice(0, 4)})
+        </p>
+      </div>
 
       <div className="prose prose-slate max-w-none">
         {article.sections.map((section) => (
           <section key={section.id} id={section.id} className="mb-10">
             <h2 className="text-xl font-semibold text-slate-900">{section.heading}</h2>
             {section.paragraphs.map((p) => (
-              <p key={p.slice(0, 24)} className="mt-3 leading-relaxed text-slate-700">
-                {p}
+              <p key={p.slice(0, 32)} className="mt-3 leading-relaxed text-slate-700">
+                <RichText text={p} />
               </p>
             ))}
             {section.bullets ? (
               <ul className="mt-3 list-disc space-y-1 pl-5 text-slate-700">
                 {section.bullets.map((b) => (
-                  <li key={b}>{b}</li>
+                  <li key={b}>
+                    <RichText text={b} />
+                  </li>
                 ))}
               </ul>
             ) : null}
@@ -76,7 +94,9 @@ export function ArticlePage({ article, pathname }: Props) {
             {article.faqs.map((f) => (
               <div key={f.question}>
                 <dt className="font-medium text-slate-900">{f.question}</dt>
-                <dd className="mt-1 text-slate-700">{f.answer}</dd>
+                <dd className="mt-1 text-slate-700">
+                  <RichText text={f.answer} />
+                </dd>
               </div>
             ))}
           </dl>
