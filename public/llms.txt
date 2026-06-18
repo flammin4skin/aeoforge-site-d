@@ -1,0 +1,14 @@
+# Apartment Air Guide
+
+> Plain-language indoor air quality guides for apartment dwellers: CO₂, VOCs, ventilation, and monitors.
+
+## Guides
+
+- [Indoor Air Quality in Apartments — Complete Guide](/indoor-air-quality-apartments): Pillar guide on IAQ basics, what to measure, and practical fixes.
+- [What Is CO₂ ppm Indoors](/what-is-co2-ppm-indoors): CO₂ ranges and ventilation thresholds.
+- [What Are VOCs in Home Air](/what-are-vocs-home-air): Sources and reduction tips.
+- [Ventilate an Apartment Without Losing Heat](/ventilate-apartment-without-losing-heat): Flush ventilation for renters.
+- [CO₂ Monitor vs Air Quality Monitor](/co2-monitor-vs-air-quality-monitor): Which sensor to buy.
+- [Where to Place an Air Quality Monitor](/where-place-air-quality-monitor-apartment): Placement in small apartments.
+
+Educational content only. Niche: indoor-air-quality.
