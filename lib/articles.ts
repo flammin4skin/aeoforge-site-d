@@ -355,9 +355,9 @@ export const articles: Article[] = [
         id: "height",
         heading: "What height and distance work best?",
         paragraphs: [
-          "Mount or place the device about 3–6 feet high in the breathing zone, because CO₂ and PM₂.₅ concentrations differ near the floor versus where you sit or sleep.",
-          "Avoid placing right next to a window that is often open — outdoor air will dominate readings and hide indoor buildup.",
-          "Keep away from stovetops and cleaning product storage; localized spikes are real but do not represent whole-room conditions ([EPA IAQ basics](https://www.epa.gov/indoor-air-quality-iaq)).",
+          "Place the device about 3–6 feet (1–1.5 m) high in the breathing zone, because CO₂ and PM₂.₅ concentrations differ near the floor versus where you sit or sleep — desk height in an office, nightstand height in a bedroom.",
+          "Avoid placing right next to a window that is often open — outdoor air at 400–450 ppm CO₂ will dominate readings and hide indoor buildup above 1,000 ppm.",
+          "Keep away from stovetops and cleaning product storage; localized PM₂.₅ spikes above 200 µg/m³ during frying are real but do not represent whole-room conditions ([EPA IAQ basics](https://www.epa.gov/indoor-air-quality-iaq)).",
         ],
       },
       {
@@ -372,7 +372,20 @@ export const articles: Article[] = [
         id: "calibrate",
         heading: "How often should you move or calibrate a monitor?",
         paragraphs: [
-          "Move the sensor seasonally — winter stuffiness and summer smoke create different priorities — and calibrate CO₂ sensors outdoors monthly if the manufacturer recommends it, because NDIR sensors drift slowly over time.",
+          "Move the sensor seasonally — winter stuffiness and summer smoke create different priorities — and calibrate NDIR CO₂ sensors outdoors monthly if the manufacturer recommends it, because sensor drift of 50–100 ppm per year is common without fresh-air baseline checks ([NIST sensor research](https://www.nist.gov)).",
+        ],
+      },
+      {
+        id: "takeaways",
+        heading: "Key takeaways",
+        paragraphs: [
+          "An air quality monitor belongs in the breathing zone (3–6 ft high) in the room you occupy most, not beside an open window or stovetop.",
+        ],
+        bullets: [
+          "CO₂ monitors answer ventilation — target roughly 1,000 ppm or lower when occupied.",
+          "PM₂.₅ sensors matter for smoke and frying; place one in the kitchen for a week if cooking dominates.",
+          "NDIR CO₂ sensors need occasional outdoor calibration; follow the manufacturer interval.",
+          "One device cannot map the whole apartment — move it or add a second sensor for high-variance rooms.",
         ],
       },
     ],
@@ -382,9 +395,16 @@ export const articles: Article[] = [
         answer:
           "Many consumer NDIR CO₂ sensors drift slowly. Occasional fresh-air calibration (device outdoors or at an open window on a calm day) improves accuracy — follow manufacturer instructions.",
       },
+      {
+        question: "Can I mount a monitor on the ceiling?",
+        answer:
+          "Ceiling mounting often reads stale stratified air in winter. Breathing-zone height (3–6 ft) matches where you inhale for 8+ hours in bedrooms and home offices.",
+      },
     ],
     sources: [
       { label: "EPA — Indoor Air Quality", url: EPA_IAQ },
+      { label: "NIST — Indoor air and sensor research", url: NIST },
+      { label: "WHO — Household air pollution", url: WHO },
     ],
   },
 ];
