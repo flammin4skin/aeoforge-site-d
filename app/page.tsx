@@ -131,6 +131,27 @@ export default function HomePage() {
           <RichText text="Start with CO₂ if stuffiness is the problem — readings above 1,000 ppm usually mean ventilation is lagging behind occupancy. Add PM₂.₅ monitoring if wildfire smoke or urban dust is the concern, because particles require filtration rather than fresh air alone ([EPA air cleaners guidance](https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home))." />
         </p>
       </section>
+
+      <section className="mt-12 border-t border-slate-200 pt-10">
+        <h2 className="text-xl font-semibold text-slate-900">Key takeaways</h2>
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+          <li>
+            CO₂ above ~1,000 ppm while occupied is a common signal to ventilate — outdoor air
+            is typically 400–450 ppm.
+          </li>
+          <li>
+            VOCs come from cleaners, cooking, and new furniture; source control plus 10–15
+            minute flush ventilation beats masking odors.
+          </li>
+          <li>
+            One monitor cannot represent a whole apartment — kitchen PM₂.₅ spikes during
+            frying while bedrooms may read clean.
+          </li>
+          <li>
+            <RichText text="Use HEPA filtration during wildfire smoke; ventilation alone does not remove fine particles ([WHO household air pollution](https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health))." />
+          </li>
+        </ul>
+      </section>
     </div>
   );
 }

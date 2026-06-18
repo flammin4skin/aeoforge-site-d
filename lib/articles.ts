@@ -129,6 +129,19 @@ export const articles: Article[] = [
           "Long-term: sleep with the door cracked if safe, ensure bath/kitchen fans work, and ask building management about makeup air or HVAC maintenance if levels stay high with windows closed ([NIST ventilation research](https://www.nist.gov)).",
         ],
       },
+      {
+        id: "takeaways",
+        heading: "Key takeaways",
+        paragraphs: [
+          "CO₂ ppm is a concentration unit — 1,000 ppm means 0.1% of indoor air is carbon dioxide, which rises when people exhale in closed rooms.",
+        ],
+        bullets: [
+          "Outdoor CO₂ is typically 400–450 ppm; indoors above ~1,000 ppm signals ventilation may be inadequate.",
+          "Readings of 1,500–2,000 ppm often feel stuffy — open windows or run exhaust for 5–15 minutes.",
+          "A CO₂ monitor measures ventilation; it does not detect smoke particles (use PM₂.₅ for that).",
+          "Bedrooms with two occupants can exceed 1,500 ppm overnight without airflow ([EPA IAQ basics](https://www.epa.gov/indoor-air-quality-iaq)).",
+        ],
+      },
     ],
     faqs: [
       {
@@ -224,12 +237,34 @@ export const articles: Article[] = [
         heading: "How much energy does flush ventilation save?",
         paragraphs: [
           "A 10-minute flush twice daily typically costs less heating or cooling loss than one window cracked 8 hours, because the HVAC system runs less overall when the envelope stays sealed between flushes.",
+          "Flush ventilation is the practice of exchanging indoor air in one short burst rather than trickle leaking — it is often 40–60% more energy-efficient than all-day window cracks for the same CO₂ reduction in small apartments.",
         ],
         bullets: [
           "1. Open windows fully on opposite sides if safe for 5–15 minutes",
           "2. Run kitchen or bath exhaust on high during the flush",
           "3. Close windows and doors; allow 10–20 minutes for temperature recovery",
           "4. Repeat when CO₂ rises above ~1,000 ppm or air feels stale",
+        ],
+      },
+      {
+        id: "trigger",
+        heading: "What CO₂ level should trigger a flush?",
+        paragraphs: [
+          "A CO₂ reading above 1,000 ppm while people are present is a common trigger to flush, because ASHRAE-style ventilation targets use that band as an occupied-space comfort benchmark.",
+          "If your monitor shows 1,500 ppm or higher for more than 30 minutes, run a 10-minute flush and re-check — levels above 2,000 ppm mean ventilation is clearly lagging behind occupancy ([WHO indoor air guidance](https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health)).",
+        ],
+      },
+      {
+        id: "takeaways",
+        heading: "Key takeaways",
+        paragraphs: [
+          "Short flush ventilation (5–15 minutes) lowers CO₂ faster than a cracked window left open all day while wasting less heat or AC.",
+        ],
+        bullets: [
+          "Open windows wide for 5–15 minutes when CO₂ exceeds ~1,000 ppm or air feels stale.",
+          "Run kitchen and bath exhaust during cooking and showering to remove moisture and combustion byproducts.",
+          "Air out when outdoor AQI is good — especially early morning in summer — to recover indoor comfort faster.",
+          "Pair exhaust fans with a controlled window opening so makeup air enters predictably in tight apartments.",
         ],
       },
     ],
@@ -279,6 +314,20 @@ export const articles: Article[] = [
         heading: "How should you choose between models?",
         paragraphs: [
           "Match the sensor to the pollutant you need to control: CO₂ for fresh air, PM₂.₅ for smoke, and TVOC only as a trend indicator because cross-brand TVOC readings are rarely comparable ([NIST sensor research](https://www.nist.gov)).",
+          "A CO₂ monitor is a device that measures ventilation adequacy; an air quality monitor is a multi-sensor unit that may add PM₂.₅, TVOC, humidity, and temperature in one housing.",
+        ],
+      },
+      {
+        id: "takeaways",
+        heading: "Key takeaways",
+        paragraphs: [
+          "Pick CO₂-only when stuffiness is the problem; add PM₂.₅ when wildfire smoke or urban dust is the main concern.",
+        ],
+        bullets: [
+          "CO₂ monitors answer whether enough fresh air reaches occupied rooms (target often ~1,000 ppm or lower).",
+          "PM₂.₅ sensors matter when smoke, dust, or allergens dominate — pair with a HEPA purifier, not ventilation alone.",
+          "TVOC readings are best used as trend lines, not cross-brand absolute numbers.",
+          "Place any monitor in the breathing zone (3–6 ft high) away from windows and stovetops ([EPA air cleaners guidance](https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-and-air-filters-home)).",
         ],
       },
     ],
