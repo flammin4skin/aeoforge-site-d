@@ -94,7 +94,7 @@ export const articles: Article[] = [
   },
   {
     slug: "what-is-co2-ppm-indoors",
-    title: "What Is CO₂ ppm Indoors — and What Levels Are Safe?",
+    title: "Indoor CO₂ ppm: Safe Levels",
     description:
       "CO₂ is measured in parts per million (ppm). Learn typical outdoor and indoor ranges, what 1,000 ppm means, and when to ventilate a small apartment.",
     directAnswer:
